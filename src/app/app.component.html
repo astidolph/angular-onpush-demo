@@ -1,6 +1,19 @@
 <div class="cell-controls">
-  <input type="number" [(ngModel)]="numCells" />
+  <label for="num_cells">Change the number of cells: </label>
+  <input type="number" id="num_cells" [(ngModel)]="numCells" />
   <button type="button" (click)="createCells(numCells)">Create cells</button>
+
+  <label for="change_cell_state">Change selected state of cell with ID: </label>
+  <input type="number" id="change_cell_state" [(ngModel)]="changeCellSelectedState" />
+  <button type="button" (click)="selectCell(changeCellSelectedState)">Change cell state</button>
+
+  <label>Show app cell JSON output: </label>
+  <input type="checkbox" [(ngModel)]="showAppCellJson" />
+</div>
+
+<div class="app-debug" *ngIf="showAppCellJson">
+  <span class="debug-title">The cell state from the app component</span>
+  {{ cells | json }}
 </div>
 
 <div class="cell-wrapper">

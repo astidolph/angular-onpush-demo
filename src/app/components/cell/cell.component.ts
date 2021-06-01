@@ -1,10 +1,11 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Cell } from 'src/app/models/cell';
 
 @Component({
   selector: 'app-cell',
   templateUrl: './cell.component.html',
-  styleUrls: ['./cell.component.scss']
+  styleUrls: ['./cell.component.scss'],
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CellComponent {
 
@@ -16,6 +17,10 @@ export class CellComponent {
 
   emitSelected(id: number) {
     this.emitSelectedEvent.next(id);
+  }
+
+  dummyFire() {
+    console.log(`cell ${this.cell.id} change detection fired`);
   }
 
 }
