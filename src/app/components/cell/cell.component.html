@@ -1,0 +1,6 @@
+<div class="cell-container"
+  [class.selected]="cell.selected"
+  (click)="emitSelected(cell.id)">
+  <p>Cell ID: {{ cell.id }}</p>
+  Is selected: {{ cell.selected }}
+</div>
